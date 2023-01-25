@@ -5,7 +5,7 @@ void main(){
 }
 
 class HomeScreen extends StatelessWidget{
-  var message = 'Hello Flutter, \n 반갑다 플러터 !! ';
+  var message = 'Hello Flutter, \n 반갑다 플러터 !! 아주 반가워';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
