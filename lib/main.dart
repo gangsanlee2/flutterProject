@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget{
     return Scaffold(
       body: Center(
         child: Text(message,
-            style: TextStyle(color: Colors.black, fontSize: 50.0)
+            style: TextStyle(color: Colors.black, fontSize: 50.0),
         ),
       ),
     );
