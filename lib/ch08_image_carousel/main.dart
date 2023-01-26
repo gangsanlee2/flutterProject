@@ -1,4 +1,4 @@
-import 'package:hello_flutter/ch_08_image_carousel/screen/home_screen.dart';
+import 'package:hello_flutter/ch08_image_carousel/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
