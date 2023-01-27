@@ -49,4 +49,4 @@ assets/
 *.ttf
 *.mp4
 
-lib/ch12_video_call/const/agora.dart
+lib/ch12_video_call/const/
