@@ -4,7 +4,7 @@ import 'package:hello_flutter/ch15_cf_tube/model/video_model.dart';
 import 'package:hello_flutter/ch15_cf_tube/repository/youtube_repository.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true, // 제목 가운데 정렬
-        title: Text(
+        title: const Text(
           '코팩튜브',
         ),
         backgroundColor: Colors.black,
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           if (!snapshot.hasData) {
             // 로딩 중일 때 로딩위젯 보여주기
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {});
             },
             child: ListView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               children: snapshot.data!
                   .map((e) => CustomYoutubePlayer(videoModel: e))
                   .toList(),

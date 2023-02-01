@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class HomeScreen extends StatelessWidget {
-  static final LatLng companyLatLng = LatLng(  // ➊ 지도 초기화 위치
+class ChoolCheck extends StatelessWidget {
+  static const LatLng companyLatLng = LatLng(  // ➊ 지도 초기화 위치
     37.5233273,  // 위도
     126.921252,  // 경도
   );
-  static final Marker marker = Marker(
+  static const Marker marker = Marker(
     markerId: MarkerId('company'),
     position: companyLatLng,
   );
   static final Circle circle = Circle(
-    circleId: CircleId('choolCheckCircle'),
+    circleId: const CircleId('choolCheckCircle'),
     center: companyLatLng, // 원의 중심이 되는 위치. LatLng값을 제공합니다.
     fillColor: Colors.blue.withOpacity(0.5), // 원의 색상
     radius: 100, // 원의 반지름 (미터 단위)
@@ -20,7 +20,8 @@ class HomeScreen extends StatelessWidget {
     strokeWidth: 1, // 원의 테두리 두께
   );
 
-  const HomeScreen({Key? key}) : super(key: key);
+  const ChoolCheck({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             // ❶ 로딩 상태
             if (!snapshot.hasData &&
                 snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -46,20 +47,20 @@ class HomeScreen extends StatelessWidget {
                   Expanded( // 2/3만큼 공간 차지
                     flex: 2,
                     child: GoogleMap(
-                      initialCameraPosition: CameraPosition(
+                      initialCameraPosition: const CameraPosition(
                         target: companyLatLng,
                         zoom: 16,
                       ),
                       myLocationEnabled: true,
-                      markers: Set.from([marker]),
-                      circles: Set.from([circle]),
+                      markers: {marker},
+                      circles: {circle},
                     ),
                   ),
                   Expanded(  // 1/3만큼 공간 차지
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(  // 시계 아이콘
+                        const Icon(  // 시계 아이콘
                           Icons.timelapse_outlined,
                           color: Colors.blue,
                           size: 50.0,
@@ -93,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                                       onPressed: () {
                                         Navigator.of(context).pop(false);
                                       },
-                                      child: Text('취소'),
+                                      child: const Text('취소'),
                                     ),
                                     if (canCheck) // 출근 가능한 상태일 때만 [출근하기] 버튼 제공
                                       TextButton(
@@ -108,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                               },
                             );
                           },
-                          child: Text('출근하기!'),
+                          child: const Text('출근하기!'),
                         ),
                       ],
                     ),
@@ -131,7 +132,7 @@ class HomeScreen extends StatelessWidget {
   AppBar renderAppBar() {
     // AppBar를 구현하는 함수
     return AppBar(
-      title: Text(
+      title: const Text(
         '오늘도 출근',
         style: TextStyle(
           color: Colors.blue,

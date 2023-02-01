@@ -97,11 +97,11 @@ class Keyboard extends StatelessWidget {
           const SizedBox(height: 1),
           ButtonRow(
             buttons: [
-              Button.large(
+              Button(
                 text: '0',
                 onPressed: onPressed,
               ),
-              Button(
+              Button.large(
                 text: '.',
                 onPressed: onPressed,
               ),

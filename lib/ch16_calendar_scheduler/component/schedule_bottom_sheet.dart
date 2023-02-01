@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/ch18_calendar_scheduler/component/custom_text_field.dart';
-import 'package:hello_flutter/ch18_calendar_scheduler/const/colors.dart';
+import 'package:hello_flutter/ch16_calendar_scheduler/component/custom_text_field.dart';
+import 'package:hello_flutter/ch16_calendar_scheduler/const/colors.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:get_it/get_it.dart';
-import 'package:hello_flutter/ch18_calendar_scheduler/database/drift_database.dart';
-import 'package:hello_flutter/ch18_calendar_scheduler/model/schedule_model.dart';
-import 'package:provider/provider.dart';
-import 'package:hello_flutter/ch18_calendar_scheduler/provider/schedule_provider.dart';
+import 'package:hello_flutter/ch16_calendar_scheduler/database/drift_database.dart';
 
 class ScheduleBottomSheet extends StatefulWidget {
   final DateTime selectedDate;
@@ -41,7 +38,7 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
           color: Colors.white,
           child: Padding(
             padding:
-                EdgeInsets.only(left: 8, right: 8, top: 8, bottom: bottomInset),
+            EdgeInsets.only(left: 8, right: 8, top: 8, bottom: bottomInset),
             child: Column(
               // ➋ 시간 관련 텍스트 필드와 내용관련 텍스트 필드 세로로 배치
               children: [
@@ -93,7 +90,7 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                   child: ElevatedButton(
                     // [저장] 버튼
                     // ➌ [저장] 버튼
-                    onPressed: () => onSavePressed(context),
+                    onPressed: onSavePressed,
                     style: ElevatedButton.styleFrom(
                       primary: PRIMARY_COLOR,
                     ),
@@ -108,17 +105,17 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
     );
   }
 
-  void onSavePressed(BuildContext context) async {    if (formKey.currentState!.validate()) {
+  void onSavePressed() async {
+    if (formKey.currentState!.validate()) {
       // ➊ 폼 검증하기
       formKey.currentState!.save(); // ➋ 폼 저장하기
 
-      context.read<ScheduleProvider>().createSchedule(
-        schedule: ScheduleModel(
-          id: 'new_model',  // ➊ 임시 ID
-          content: content!,
-          date: widget.selectedDate,
-          startTime: startTime!,
-          endTime: endTime!,
+      await GetIt.I<LocalDatabase>().createSchedule(  // ➊ 일정 생성하기
+        SchedulesCompanion(
+          startTime: Value(startTime!),
+          endTime: Value(endTime!),
+          content: Value(content!),
+          date: Value(widget.selectedDate),
         ),
       );
 

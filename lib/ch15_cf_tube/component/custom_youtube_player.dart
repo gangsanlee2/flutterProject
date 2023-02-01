@@ -10,10 +10,8 @@ class CustomYoutubePlayer extends StatefulWidget {
   // 상위 위젯에서 입력받을 동영상 정보
   final VideoModel videoModel;
 
-  const CustomYoutubePlayer({
-    required this.videoModel,
-    Key? key,
-  }) : super(key: key);
+  const CustomYoutubePlayer({super.key, required this.videoModel});
+
 
   @override
   State<CustomYoutubePlayer> createState() => _CustomYoutubePlayerState();
@@ -28,7 +26,7 @@ class _CustomYoutubePlayerState extends State<CustomYoutubePlayer> {
 
     controller = YoutubePlayerController(  // ➊ 컨트롤러 선언
       initialVideoId: widget.videoModel.id,  // 처음 실행할 동영상의 ID
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: false,  // 자동 실행 사용하지 않기
       ),
     );
@@ -48,7 +46,7 @@ class _CustomYoutubePlayerState extends State<CustomYoutubePlayer> {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
             widget.videoModel.title,  // 동영상 제목
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16.0,
               fontWeight: FontWeight.w700,

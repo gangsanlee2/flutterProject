@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:hello_flutter/ch18_calendar_scheduler/const/colors.dart';
+import 'package:hello_flutter/ch16_calendar_scheduler/const/colors.dart';
 
 class MainCalendar extends StatelessWidget {
   final OnDaySelected onDaySelected; // ➊ 날짜 선택 시 실행할 함수

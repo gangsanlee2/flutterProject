@@ -1,4 +1,4 @@
-import 'package:hello_flutter/ch18_calendar_scheduler/model/schedule.dart';
+import 'package:hello_flutter/ch16_calendar_scheduler/model/schedule.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
