@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
+  sdk: '>=2.19.0 <3.0.0' # dart version 제약
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -56,6 +56,37 @@ dependencies:
   camera: ^0.10.0+4
   agora_rtc_engine: ^6.0.0
   permission_handler: ^10.0.2
+
+  google_maps_flutter: ^2.2.1
+  geolocator: ^9.0.2
+
+  image_gallery_saver: ^1.7.1
+  uuid: ^3.0.6
+
+  youtube_player_flutter: ^8.1.0
+  dio: ^4.0.6
+
+
+  cloud_firestore: ^4.3.1
+  crypto: ^3.0.2
+  iamport_flutter: ^0.10.0
+  intl: ^0.17.0 # datetime
+  firebase_auth: ^4.2.5
+  firebase_core: ^2.4.1
+  flutter_swiper: ^1.1.6
+  fluttertoast: ^8.1.2
+  google_sign_in: ^5.4.3
+  outline_material_icons: ^0.1.0
+  provider: ^6.0.5
+  sqflite: ^2.1.0
+
+  table_calendar: ^3.0.7
+  drift: ^2.1.0
+  sqlite3_flutter_libs: ^0.5.10
+  path: ^1.8.2
+  get_it: ^7.2.0
+
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:
