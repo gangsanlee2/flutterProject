@@ -1,6 +1,7 @@
-import 'package:hello_flutter/ch16_calendar_scheduler/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../constants/colors.dart';
 
 class CustomTextField extends StatelessWidget {
   final String label;
