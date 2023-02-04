@@ -30,7 +30,6 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
   @override
   Widget build(BuildContext context) {
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
-    Logger.showToast("2 ScheduleBottomSheet: ");
 
     return Form(
       // ➊ 텍스트 필드를 한 번에 관리할 수 있는 폼
@@ -115,11 +114,9 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
   }
 
   void onSavePressed() async {
-    Logger.showToast("3 onSavePressed: ");
     formKey.currentState!.save();
     final schedules = Hive.box<Schedule>('schedules');
     String temp = const Uuid().v4();
-    Logger.showToast("4 ID: $temp");
     Schedule schedule = Schedule(temp, content!, widget.selectedDate, startTime!, endTime!);
     schedules.put(temp,schedule);
     final Schedule? returnSchedule = schedules.get(temp);
